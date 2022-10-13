@@ -2,7 +2,7 @@
  * Получение случайного числа в диапазоне
  * @param {Number|String} firstNumber - первое число
  * @param {Number|String} secondNumber - второе число
- * @returns {Number|String} вернется случайное число
+ * @returns {Number|String} вернется случайное число из диапазона
  */
 
  const getRandomIntInclusive = (firstNumber, secondNumber) => {
