@@ -75,4 +75,4 @@ const createPictureAttribute = (count) => {
 };
 
 const objectOfPhotos = createPictureAttribute(25);
-
+console.table(objectOfPhotos);
