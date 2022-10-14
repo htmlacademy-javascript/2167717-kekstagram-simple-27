@@ -5,7 +5,7 @@
  * @returns {Number|String} вернется случайное число из диапазона
  */
 
- const getRandomIntInclusive = (firstNumber, secondNumber) => {
+const getRandomIntInclusive = (firstNumber, secondNumber) => {
   if (firstNumber < 0 || secondNumber < 0) { //Сравнение чисел. Вернется NaN если одно или оба указанных числа отрицательные
     return NaN;
   }
@@ -14,7 +14,7 @@
   const randomResult = Math.random() * (greatestNumber - lowestNumber + 1) + lowestNumber; //Получение случайного целого числа в заданном диапазона
 
   return Math.floor(randomResult);
-}
+};
 
 getRandomIntInclusive(44, 11);
 
@@ -31,7 +31,7 @@ const getMaxLengthText = (checkText, maxLengthText) => {
     return true; //Длина строки в допустимом диапазоне
   }
   return false; //Длина строки больше допустимого диапазона
-}
+};
 
 getMaxLengthText('Some text', 7);
 
@@ -46,12 +46,12 @@ const PHOTOS_DESCRIPTION = [//Массив с описаниями к фото
   'На улице осень', 'грядут холода', 'Расчехлил сноуборд', 'зима близко', 'друзья',
   'Сейчас бы на пляж, а не вот это вот все', 'вчера на машине проколол колесо',
   'Нужно быть сильным', 'Кекса можно простить', ' заставил меня слишком много учить',
-]
+];
 
 const getRandomDescription = () =>{
   const randomDescription = Math.floor(Math.random() * PHOTOS_DESCRIPTION.length); //Получение случайного элемента массива
   return PHOTOS_DESCRIPTION[randomDescription];
-}
+};
 getRandomDescription();
 
 
@@ -69,10 +69,10 @@ const createPictureAttribute = (count) => {
       description: getRandomDescription(),
       likes: getRandomIntInclusive(15, 200),
       comments: getRandomIntInclusive(0, 200),
-    }
+    };
   }
   return pictureAttribute;
-}
+};
 
 const objectOfPhotos = createPictureAttribute(25);
-console.table(objectOfPhotos);
+
