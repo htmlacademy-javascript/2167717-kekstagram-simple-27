@@ -74,5 +74,6 @@ const createPictureAttribute = (count) => {
   return pictureAttribute;
 };
 
-const objectOfPhotos = createPictureAttribute(25);
-console.table(objectOfPhotos);
+//const objectOfPhotos = createPictureAttribute(25);
+//console.table(objectOfPhotos);
+createPictureAttribute(25);
