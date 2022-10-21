@@ -1,10 +1,17 @@
 /**
- * Получение случайного числа в диапазоне
- * @param {Number|String} firstNumber - первое число
- * @param {Number|String} secondNumber - второе число
- * @returns {Number|String} вернется случайное число из диапазона
+ * Константы для объекта фото
  */
+const MIN_LIKES = 15;
+const MAX_LIKES = 200;
+const MIN_COMMENTS = 0;
+const MAX_COMMENTS = 200;
 
+/**
+ * Получение случайного числа в диапазоне
+ * @param {Number} firstNumber - первое число
+ * @param {Number} secondNumber - второе число
+ * @returns {Number} вернется случайное число из диапазона
+ */
 const getRandomIntInclusive = (firstNumber, secondNumber) => {
   if (firstNumber < 0 || secondNumber < 0) { //Сравнение чисел. Вернется NaN если одно или оба указанных числа отрицательные
     return NaN;
@@ -18,28 +25,22 @@ const getRandomIntInclusive = (firstNumber, secondNumber) => {
 
 getRandomIntInclusive(44, 11);
 
-
 /**
  * Проверка максимальной длины строки
- * @param {String|Number} checkText - проверяемая строка
- * @param {String|Number} maxLengthText - максимальная длина строки
+ * @param {String} checkText - проверяемая строка
+ * @param {String} maxLengthText - максимальная длина строки
  * @returns {boolean} вернется проверка длины строки
  */
-
 const getMaxLengthText = (checkText, maxLengthText) => {
-  if (checkText.length <= maxLengthText) { //Сравнение строки и максимальной длины этой строки
-    return true; //Длина строки в допустимом диапазоне
-  }
-  return false; //Длина строки больше допустимого диапазона
+  return checkText.length <= maxLengthText
 };
 
 getMaxLengthText('Some text', 7);
 
-
 /**
- * @returns {string}  вернется случайное значение из массива в виде строки
+ * Массив с описаниями к фото
  */
-const PHOTOS_DESCRIPTION = [//Массив с описаниями к фото
+const PHOTOS_DESCRIPTION = [
   'В рестике', 'кодим', 'с собакой', 'с котом', 'делаю сайт', 'до дома пешком',
   'Сложно учиться', 'Учу Java Script', 'Это мой первый программный язык',
   'Я отдыхаю', 'гамаю', 'лежу', 'читаю', 'страдаю', 'в точку смотрю',
@@ -48,9 +49,12 @@ const PHOTOS_DESCRIPTION = [//Массив с описаниями к фото
   'Нужно быть сильным', 'Кекса можно простить', ' заставил меня слишком много учить',
 ];
 
-const getRandomDescription = () =>{
-  const randomDescription = Math.floor(Math.random() * PHOTOS_DESCRIPTION.length); //Получение случайного элемента массива
-  return PHOTOS_DESCRIPTION[randomDescription];
+/**
+ * @returns {string}  вернется случайное значение из массива в виде строки
+ */
+const getRandomDescription = () => {
+  const randomIndexDescription = Math.floor(Math.random() * PHOTOS_DESCRIPTION.length); //Получение случайного индекса элемента массива
+  return PHOTOS_DESCRIPTION[randomIndexDescription];
 };
 getRandomDescription();
 
@@ -60,20 +64,19 @@ getRandomDescription();
  * @param {Number} count - количество генерируемых объектов в созданном массиве
  * @returns {Array} вернется массив объектов
  */
-const createPictureAttribute = (count) => {
-  const pictureAttribute = []; //Создаем пустой массив
+const createPictureLists = (count) => {
+  const pictureLists = []; //Создаем пустой массив
   for (let i = 1; i <= count; i++) {
-    pictureAttribute[i - 1] = {
+    pictureList[i - 1] = {
       id: i,
       url:  `photos/${i}.jpg`,
       description: getRandomDescription(),
-      likes: getRandomIntInclusive(15, 200),
-      comments: getRandomIntInclusive(0, 200),
+      likes: getRandomIntInclusive(MIN_LIKES, MAX_LIKES),
+      comments: getRandomIntInclusive(MIN_COMMENTS, MAX_COMMENTS),
     };
-  }
-  return pictureAttribute;
+  };
+  return pictureLists;
 };
 
-//const objectOfPhotos = createPictureAttribute(25);
-//console.table(objectOfPhotos);
-createPictureAttribute(25);
+createPictureList(25);
+//
